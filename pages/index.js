@@ -122,8 +122,9 @@ export default function Home() {
             <span className="text-3xl font-bold ">Lorem ipsum dolor sit</span>
           </Trail>
           <span className="text-3xl font-bold ">
-            amet consectetur adipisicing elit.
+            amet consectetur adipisicing elit
           </span>
+
           <span className="text-3xl font-bold ">Nam, consequuntur.</span>
         </HomeSection>
       </main>
