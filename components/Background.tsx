@@ -1,39 +1,25 @@
-import React, { createRef, ReactNode, useRef, useState } from "react";
-import Image from "next/image";
-import { useHover } from "react-use";
+import React from "react";
+import NextImage from "next/image";
+import { animated } from "@react-spring/web";
 
-import { animated, useSpring } from "@react-spring/web";
-import { triggerAsyncId } from "async_hooks";
 const Background: React.FC<{
   src: string;
   className?: string;
-
   showBgOnHover?: Boolean;
   transform?: Boolean;
-}> = ({ src = "", className = "", transform = true }) => {
-  const [over, toggle] = useState(false);
-  const springStyle = useSpring({
-    transform: transform ? `scale(${over ? "1.2" : "1.6"})` : "",
-    opacity: over ? 1 : 0.2,
-    config: {
-      stiffness: 300,
-      friction: 80,
-      mass: 5,
-    },
-  });
+  animatedProps?: Object;
+}> = ({ src, className = "", transform = true, animatedProps = {} }) => {
   return (
     <animated.div
-      /*     onMouseEnter={() => toggle(true)}
-      onMouseLeave={() => toggle(false)}
-      style={springStyle} */
-      className="absolute w-full h-full -top-0 -left-0 z-0"
+      className={`absolute top-0 left-0 right-0 bottom-0 z-0 ${className}`}
+      {...animatedProps}
     >
-      <Image
-        src={src}
+      <NextImage
+        width={typeof window != "undefined" ? window.innerWidth : 500}
         layout="fill"
+        src={src}
         objectFit="cover"
-        className={className}
-      ></Image>
+      ></NextImage>
     </animated.div>
   );
 };

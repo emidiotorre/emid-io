@@ -10,6 +10,8 @@ module.exports = {
         sans: ["Satoshi", "Helvetica", "Arial", "sans-serif"],
       },
       colors: {
+        primo: "rgb(var(--color-primo) / <alpha-value>)",
+        secondo: "rgb(var(--color-secondo) / <alpha-value>)",
         asparagus: {
           DEFAULT: "#7E8D4E",
           50: "#C8D1AB",
