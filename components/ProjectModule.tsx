@@ -37,7 +37,7 @@ const ProjectModule: React.FC<ProjectModuleProps> = ({
 
   return (
     <div
-      className="relative md:snap-start"
+      className="relative lg:snap-start"
       onMouseEnter={() => {
         opacityProps.onMouseEnter();
         opacityBlockBgProps.onMouseEnter();
@@ -53,55 +53,55 @@ const ProjectModule: React.FC<ProjectModuleProps> = ({
         animatedProps={{ style: opacityProps.style }}
     ></Background> */}
       <BasicModule
-        className="md:h-[80vh] overflow-hidden z-10 hover:bg-primo md:hover:bg-secondo"
+        className="lg:h-[80vh] overflow-hidden z-10 hover:bg-primo lg:hover:bg-secondo"
         padding={true}
         bg={
           <>
             <Gallery
               animatedProps={{ style: opacityProps.style }}
-              className="hidden md:block md:absolute top-16 right-16 z-0 -mt-8 w-[50vw]"
+              className="hidden lg:block lg:absolute top-16 right-16 z-0 -mt-8 w-[50vw] h-[50vh]"
               images={images}
             ></Gallery>
             <Gallery
-              className="block md:hidden md:absolute -ml-8 pt-8 top-0 left-0 z-0 -mt-8 w-[100vw]"
+              className="block lg:hidden lg:absolute -ml-8 pt-8 top-0 left-0 z-0 -mt-8 w-[100vw]"
               images={images}
             ></Gallery>
           </>
         }
       >
-        <div className="block md:inline-block md:relative md:bottom-0 md:-mb-8 md:-ml-8 md:px-8 md:pt-8 md:pb-16 md:max-w-[50ch]">
+        <div className="block lg:inline-block lg:relative lg:bottom-0 lg:-mb-8 lg:-ml-8 lg:px-8 lg:pt-8 lg:pb-16 lg:max-w-[50ch]">
           <animated.div
-            className="hidden md:block bg-white absolute z-[1] top-0 left-0 bottom-0 right-0"
+            className="hidden lg:block bg-white absolute z-[1] top-0 left-0 bottom-0 right-0"
             style={opacityBlockBgProps.style}
           ></animated.div>
           <div className="z-10 relative top-4">
-            <h2 className="z-10 text-md md:text-3xl font-bold ">{title}</h2>
-            <h3 className="z-10 text-md md:text-xl font-light ">{subtitle}</h3>
+            <h2 className="z-10 text-md lg:text-3xl font-bold">{title}</h2>
+            <h3 className="z-10 text-md lg:text-xl font-light">{subtitle}</h3>
           </div>
           <animated.div
             style={opacityBlockBgProps.style}
-            className="hidden md:block z-10 relative top-8 text-md md:text-xl max-w-[50ch]"
+            className="hidden lg:block z-10 relative top-8 text-md lg:text-xl max-w-[50ch]"
           >
             {description}
             <div className="my-8 flex justify-end">
               <a
                 href={link}
                 target="_blank"
-                className="cursor-pointer transition-all duration-300 w-full text-center md:w-auto block md:inline-block bg-secondo px-4 py-2 rounded-full text-primo hover:bg-primo hover:text-secondo text-xl uppercase"
+                className="cursor-pointer transition-all duration-300 w-full text-center lg:w-auto block lg:inline-block bg-secondo px-4 py-2 rounded-full text-primo hover:bg-primo hover:text-black text-xl uppercase"
               >
-                visit →
+                open →
               </a>
             </div>
           </animated.div>
-          <animated.div className="block md:hidden z-10 relative top-8 text-md md:text-xl max-w-[50ch]">
+          <animated.div className="block lg:hidden z-10 relative top-8 text-md lg:text-xl max-w-[50ch]">
             {description}
-            <div className="my-8 flex justify-end">
+            <div className="my-8 flex justify-start">
               <a
                 href={link}
                 target="_blank"
-                className="cursor-pointer transition-all duration-300 w-full text-center md:w-auto block md:inline-block bg-secondo px-4 py-2 rounded-full text-primo hover:bg-primo hover:text-secondo text-xl uppercase"
+                className="cursor-pointer transition-all duration-300 w-full text-center w-auto inline-block bg-secondo px-4 py-2 rounded-full text-primo hover:bg-primo hover:text-black text-xl uppercase"
               >
-                visit →
+                open →
               </a>
             </div>
           </animated.div>

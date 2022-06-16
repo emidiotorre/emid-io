@@ -1,6 +1,7 @@
-import React, { ReactElement, ReactInstance, ReactNode } from "react";
+import React, { ReactElement, ReactInstance, ReactNode, useRef } from "react";
 import NextImage from "next/image";
 import { animated } from "@react-spring/web";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 const BasicModule: React.FC<{
   children: ReactNode | ReactNode[];
   className?: string;
@@ -14,13 +15,22 @@ const BasicModule: React.FC<{
   padding = true,
   animatedProps = {},
 }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const entry = useIntersectionObserver(ref, {
+    rootMargin:
+      typeof window != "undefined"
+        ? `-${window.innerHeight / 3}px 0px -${window.innerHeight / 3}px 0px`
+        : "-400px 0px -400px 0px",
+  });
+  const isVisible = !!entry?.isIntersecting;
+
   return (
     <animated.div
+      ref={ref}
       className={` ${
         padding ? "py-8" : null
-      } md:snap-center block relative px-8 transition-all duration-300 overflow-hidden border-t-[8px] border-secondo bg-primo hover:bg-[#fff] text-secondo hover:text-black
-      ${className}`}
-      {...animatedProps}
+      } lg:snap-center block relative px-8 transition-all duration-300 overflow-hidden border-t-[8px] border-secondo bg-primo text-secondo 
+      ${className} ${isVisible ? "bg-white text-black" : null}`}
     >
       {typeof bg == "string" && bg != "" ? (
         <NextImage

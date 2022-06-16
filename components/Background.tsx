@@ -1,6 +1,6 @@
 import React from "react";
-import NextImage from "next/image";
 import { animated } from "@react-spring/web";
+import Image from "./Image";
 
 const Background: React.FC<{
   src: string;
@@ -14,12 +14,12 @@ const Background: React.FC<{
       className={`absolute top-0 left-0 right-0 bottom-0 z-0 ${className}`}
       {...animatedProps}
     >
-      <NextImage
+      <Image
         width={typeof window != "undefined" ? window.innerWidth : 500}
         layout="fill"
         src={src}
         objectFit="cover"
-      ></NextImage>
+      ></Image>
     </animated.div>
   );
 };
