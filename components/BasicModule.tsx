@@ -18,7 +18,7 @@ const BasicModule: React.FC<{
     <animated.div
       className={` ${
         padding ? "py-8" : null
-      } snap-start block relative px-8 transition-all duration-300 overflow-hidden border-t-[8px] border-secondo bg-primo hover:bg-[#fff] text-secondo hover:text-black
+      } md:snap-center block relative px-8 transition-all duration-300 overflow-hidden border-t-[8px] border-secondo bg-primo hover:bg-[#fff] text-secondo hover:text-black
       ${className}`}
       {...animatedProps}
     >

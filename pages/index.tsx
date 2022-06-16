@@ -147,22 +147,22 @@ export default function Home() {
           className="bg-primo hover:bg-transparent h-screen hover:text-secondo"
           bg={<Background src="/1_bn.jpeg" className="z-[-1]"></Background>}
         >
-          <div className=" md:hidden mt-2 md:mt-4 text-lg md:text-xl ">
+          <div className="block md:hidden absolute top-4 left-8 mt-2 md:mt-4 text-lg md:text-xl ">
             It's nice to see you here, <br /> don't click the color wheel.
           </div>
-          <div className="hidden md:block mt-2 md:mt-4 text-lg md:text-xl ">
+          <div className="hidden md:block absolute top-4 left-8 mt-2 md:mt-4 text-lg md:text-xl ">
             It's nice to see you here, don't click the color wheel.
           </div>
           <div className="relative flex flex-col justify-start align-start py-64">
             <Trail className="" open height={48}>
-              <span className="text-3xl md:text-6xl relative md:-top-4 md:text-4xl font-bold ">
+              <span className="text-3xl md:text-7xl relative md:-top-8 md:text-4xl font-bold ">
                 Hello,
               </span>
-              <span className="text-3xl md:text-6xl relative  md:text-4xl font-bold ">
+              <span className="text-3xl md:text-7xl relative  md:text-4xl font-bold ">
                 I'm Emidio Torre
               </span>
               <span className="text-lg md:text-xl relative  md:top-8  ">
-                Creative full-stack developer. <br /> Based in Salerno, Italy
+                Creative web developer <br /> Based in Salerno, Italy
               </span>
             </Trail>
           </div>

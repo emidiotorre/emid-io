@@ -37,7 +37,7 @@ const ProjectModule: React.FC<ProjectModuleProps> = ({
 
   return (
     <div
-      className="relative snap-start"
+      className="relative md:snap-start"
       onMouseEnter={() => {
         opacityProps.onMouseEnter();
         opacityBlockBgProps.onMouseEnter();
@@ -53,13 +53,13 @@ const ProjectModule: React.FC<ProjectModuleProps> = ({
         animatedProps={{ style: opacityProps.style }}
     ></Background> */}
       <BasicModule
-        className="md:h-[80vh] overflow-hidden z-10 hover:bg-secondo"
+        className="md:h-[80vh] overflow-hidden z-10 hover:bg-primo md:hover:bg-secondo"
         padding={true}
         bg={
           <>
             <Gallery
               animatedProps={{ style: opacityProps.style }}
-              className="hidden md:block md:absolute top-0 left-0 z-0 -mt-8 w-[100vw]"
+              className="hidden md:block md:absolute top-16 right-16 z-0 -mt-8 w-[50vw]"
               images={images}
             ></Gallery>
             <Gallery
@@ -80,14 +80,26 @@ const ProjectModule: React.FC<ProjectModuleProps> = ({
           </div>
           <animated.div
             style={opacityBlockBgProps.style}
-            className="z-10 relative top-8 text-md md:text-xl max-w-[50ch]"
+            className="hidden md:block z-10 relative top-8 text-md md:text-xl max-w-[50ch]"
           >
             {description}
             <div className="my-8 flex justify-end">
               <a
                 href={link}
                 target="_blank"
-                className="cursor-pointer transition-all duration-300  bg-secondo px-4 py-2 rounded-full text-primo hover:bg-primo hover:text-secondo text-xl uppercase"
+                className="cursor-pointer transition-all duration-300 w-full text-center md:w-auto block md:inline-block bg-secondo px-4 py-2 rounded-full text-primo hover:bg-primo hover:text-secondo text-xl uppercase"
+              >
+                visit →
+              </a>
+            </div>
+          </animated.div>
+          <animated.div className="block md:hidden z-10 relative top-8 text-md md:text-xl max-w-[50ch]">
+            {description}
+            <div className="my-8 flex justify-end">
+              <a
+                href={link}
+                target="_blank"
+                className="cursor-pointer transition-all duration-300 w-full text-center md:w-auto block md:inline-block bg-secondo px-4 py-2 rounded-full text-primo hover:bg-primo hover:text-secondo text-xl uppercase"
               >
                 visit →
               </a>

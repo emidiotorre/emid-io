@@ -17,7 +17,10 @@ const Gallery: React.FC<{
   };
 
   return (
-    <animated.div className={className} {...animatedProps}>
+    <animated.div
+      className={`focus:outline-none ${className}`}
+      {...animatedProps}
+    >
       {/* @ts-ignore */}
       <Flickity
         className={`carousel`} // default ''
@@ -28,7 +31,7 @@ const Gallery: React.FC<{
         static // default false
       >
         {images.map((img, idx) => {
-          return <img src={img} key={idx} />;
+          return <img className="focus:outline-none" src={img} key={idx} />;
         })}
       </Flickity>
     </animated.div>
