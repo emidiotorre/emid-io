@@ -33,13 +33,19 @@ const Image = (props: any) => {
 const isMobileConnection = () => {
   const connection =
     navigator.connection ||
+    //@ts-ignore
     navigator.mozConnection ||
+    //@ts-ignore
     navigator.webkitConnection;
   return (
     connection?.type === "cellular" ||
+    //@ts-ignore
     connection?.effectiveType === "slow-2g" ||
+    //@ts-ignore
     connection?.effectiveType === "2g" ||
+    //@ts-ignore
     connection?.effectiveType === "3g" ||
+    //@ts-ignore
     connection?.saveData === true
   );
 };
