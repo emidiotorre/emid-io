@@ -10,6 +10,9 @@ import useSpringOnHover from "../hooks/useSpringOnHover";
 import Background from "../components/Background";
 import useOpacityOnHover from "../hooks/useOpacityOnHover";
 import useClipboard from "../hooks/useClipboard";
+import CopyEmail from "../components/copyEmail";
+import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import IntroSection from "../components/IntroSection";
 
 const projects: ProjectModuleProps[] = [
   {
@@ -95,7 +98,7 @@ const projects: ProjectModuleProps[] = [
     title: "Alberto Garutti",
     subtitle: "Design by Alberto Garutti Studio",
     images: ["/ag_1.png", "/ag_2.png", "/ag_3.png", "/ag_4.png", "/ag_5.png"],
-    link: "https://www.castellodirivoli.org/",
+    link: "https://www.albertogarutti.it/",
   },
   {
     title: "Umberto Kühtz Project",
@@ -109,17 +112,13 @@ const projects: ProjectModuleProps[] = [
       "/uk_6.png",
       "/uk_7.png",
     ],
-    link: "https://www.castellodirivoli.org/",
+    link: "https://www.umbertokuhtzproject.it/",
   },
 ];
 
 export default function Home() {
-  const [isCopied, setCopied] = useClipboard("emidio.torre@gmail.com", {
-    successDuration: 1000,
-  });
-
   return (
-    <div className="text-[#fafafa]">
+    <div className="text-primo bg-secondo">
       <Head>
         <link
           href="https://api.fontshare.com/v2/css?f[]=satoshi@700,400&display=swap"
@@ -134,52 +133,23 @@ export default function Home() {
       </div> */}
       <div className=" fixed bottom-0 w-full flex justify-between px-8 py-8 z-50 text-black">
         <a className="text-xl uppercase" href="#work"></a>
-        <div
-          onClick={setCopied}
-          className="cursor-pointer transition-all duration-300  bg-secondo px-4 py-2 rounded-full text-primo hover:bg-primo hover:text-secondo text-xl uppercase"
-        >
-          {isCopied ? "address copied!" : "send me an email!"}
-        </div>
+        <CopyEmail></CopyEmail>
       </div>
       <main className="">
-        <BasicModule
-          padding={false}
-          className="bg-primo hover:bg-transparent h-screen hover:text-secondo"
-          bg={<Background src="/1_bn.jpeg" className="z-[-1]"></Background>}
-        >
-          <div className="block md:hidden absolute top-4 left-8 mt-2 md:mt-4 text-lg md:text-xl ">
-            It's nice to see you here, <br /> don't click the color wheel.
-          </div>
-          <div className="hidden md:block absolute top-4 left-8 mt-2 md:mt-4 text-lg md:text-xl ">
-            It's nice to see you here, don't click the color wheel.
-          </div>
-          <div className="relative flex flex-col justify-start align-start py-64">
-            <Trail className="" open height={48}>
-              <span className="text-3xl md:text-7xl relative md:-top-8 md:text-4xl font-bold ">
-                Hello,
-              </span>
-              <span className="text-3xl md:text-7xl relative  md:text-4xl font-bold ">
-                I'm Emidio Torre
-              </span>
-              <span className="text-lg md:text-xl relative  md:top-8  ">
-                Creative web developer <br /> Based in Salerno, Italy
-              </span>
-            </Trail>
-          </div>
-        </BasicModule>
+        <IntroSection></IntroSection>
         <BasicModule className="px-0">
-          <Marquee gradient={false} speed={100}>
+          <Marquee gradient={false} speed={100} style={{ overflowY: "hidden" }}>
             <h3 className="text-5xl">
-              - I SUPPORT DESIGNERS AND AGENCIES, PROVIDING PRACTICAL SOLUTIONS
-              USING THE LATEST TECHNOLOGIES -
+              ━━ I SUPPORT DESIGNERS AND AGENCIES, PROVIDING PRACTICAL SOLUTIONS
+              USING THE LATEST TECHNOLOGIES ━━
             </h3>
           </Marquee>
         </BasicModule>
         <BasicModule>
           <h3 className="text-3xl mb-32">
             PASSIONATE ABOUT THE INTERNET AND THE WEB. <br></br> I LOVE WORKING
-            AT THE INTERSECTION OF ARTS AND TECHNOLOGY. <br></br>I CREATE
-            MEMORABLE WEB EXPERIENCES.
+            AT THE INTERSECTION OF ARTS AND TECHNOLOGY. <br></br>I CREATE USABLE
+            AND MEMORABLE WEB EXPERIENCES.
           </h3>
         </BasicModule>
         <BasicModule>

@@ -17,7 +17,7 @@ const Trail: React.FC<{
 
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 1000, friction: 200 },
+    config: { mass: 5, tension: 1000, friction: 600 },
     opacity: open ? 1 : 0,
     x: open ? 0 : 20,
     height: open ? height : 0,

@@ -17,10 +17,19 @@ const BasicModule: React.FC<{
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {
-    rootMargin:
-      typeof window != "undefined"
-        ? `-${window.innerHeight / 3}px 0px -${window.innerHeight / 3}px 0px`
-        : "-400px 0px -400px 0px",
+    /**
+     * This rootMargin creates a horizontal line vertically centered
+     * that will help trigger an intersection at that the very point.
+     */
+    rootMargin: "-50% 0% -50% 0%",
+
+    /**
+     * This is the default so you could remove it.
+     * I just wanted to leave it here to make it more explicit
+     * as this threshold is the only one that works with the above
+     * rootMargin
+     */
+    threshold: 0,
   });
   const isVisible = !!entry?.isIntersecting;
 
@@ -29,8 +38,10 @@ const BasicModule: React.FC<{
       ref={ref}
       className={` ${
         padding ? "py-8" : null
-      } lg:snap-center block relative px-8 transition-all duration-300 overflow-hidden border-t-[8px] border-secondo bg-primo text-secondo 
-      ${className} ${isVisible ? "bg-white text-black" : null}`}
+      } lg:snap-center block relative px-8 transition-all duration-300 overflow-hidden border-t-[0px] border-secondo 
+      ${className} ${
+        isVisible ? "bg-secondo text-primo" : "bg-primo text-secondo"
+      }`}
     >
       {typeof bg == "string" && bg != "" ? (
         <NextImage
