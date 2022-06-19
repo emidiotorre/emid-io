@@ -2,10 +2,20 @@ import Trail from "./Trail";
 import BasicModule from "./BasicModule";
 import useTailwindBreakpoint from "../hooks/useTailwindBreakpoint";
 
+import dynamic from "next/dynamic";
+const ThreeAnimation = dynamic(() => import("./ThreeAnimation"), {
+  ssr: false,
+});
+
 export default () => {
   const currentBreakpoint = useTailwindBreakpoint();
   return (
-    <BasicModule className="h-[80vh]">
+    <BasicModule
+      className="h-[80vh]"
+      bg={
+        typeof window != "undefined" ? <ThreeAnimation></ThreeAnimation> : null
+      }
+    >
       <div className="block md:hidden absolute top-4 left-8 mt-2 md:mt-4 text-lg md:text-xl ">
         It's nice to see you here, <br /> don't click the color wheel.
       </div>

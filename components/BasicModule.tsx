@@ -52,7 +52,7 @@ const BasicModule: React.FC<{
           objectFit="cover"
         ></NextImage>
       ) : (
-        bg
+        <div className="z-0 absolute top-0 bottom-0 left-0 right-0">{bg}</div>
       )}
       {children}
     </animated.div>
