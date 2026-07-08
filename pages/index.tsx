@@ -131,7 +131,7 @@ const Nav: React.FC = () => {
       <div className="mx-auto flex max-w-content items-center justify-between px-5 py-4 sm:px-8">
         <a href="#top" className="group flex items-baseline gap-3">
           <span
-            className={`text-lg font-extrabold tracking-tight transition-colors ${
+            className={`text-lg font-semibold tracking-tight transition-colors ${
               scrolled ? "text-ink" : "text-on-abyss"
             }`}
           >
@@ -174,13 +174,13 @@ const Hero: React.FC = () => (
     className="relative isolate min-h-[100svh] overflow-hidden bg-abyss text-on-abyss"
   >
     <div className="mx-auto grid min-h-[100svh] max-w-[1380px] grid-cols-1 items-center gap-y-12 px-5 pb-12 pt-28 sm:px-8 lg:grid-cols-[0.92fr_1.15fr] lg:gap-x-8 lg:pb-16">
-      {/* content */}
-      <div className="order-2 lg:order-1">
+      {/* content — first on mobile, left column on desktop */}
+      <div className="order-1">
         <Reveal>
           <Kicker onDark>Business &amp; data-platform consultant</Kicker>
         </Reveal>
         <Reveal delay={80}>
-          <h1 className="mt-6 max-w-[16ch] text-[clamp(2.25rem,1rem+4.4vw,4.25rem)] font-extrabold leading-[0.98] tracking-[-0.03em] text-on-abyss">
+          <h1 className="mt-6 max-w-[16ch] text-hero font-semibold text-on-abyss">
             I build the data platforms that critical work depends on.
           </h1>
         </Reveal>
@@ -217,7 +217,7 @@ const Hero: React.FC = () => (
       {/* globe module — intentionally NOT wrapped in a reveal/transform:
           a transformed or will-change ancestor can offset the WebGL canvas's
           pointer hit-testing and break dragging. It fades in on its own. */}
-      <figure className="order-1 lg:order-2 lg:ml-auto lg:justify-self-end">
+      <figure className="order-2 lg:ml-auto lg:justify-self-end">
         <div className="relative mx-auto aspect-square w-full max-w-[28rem] cursor-grab active:cursor-grabbing sm:max-w-[34rem] lg:max-w-[48rem]">
           <MethaneMap />
           {/* fade the square edges into the background — must not eat pointer
@@ -293,7 +293,7 @@ const Capabilities: React.FC = () => (
       <div className="grid gap-6 md:grid-cols-[1fr_2fr] md:gap-16">
         <div className="md:sticky md:top-28 md:self-start">
           <Reveal>
-            <h2 className="text-display-sm font-extrabold text-ink">
+            <h2 className="text-display-sm font-semibold text-ink">
               Capabilities
             </h2>
             <p className="mt-5 max-w-prose text-ink-2">
@@ -313,7 +313,7 @@ const Capabilities: React.FC = () => (
               className="group grid grid-cols-1 gap-2 border-b border-line py-7 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-8"
             >
               <div>
-                <h3 className="text-xl font-bold text-ink">{c.title}</h3>
+                <h3 className="text-xl font-semibold text-ink">{c.title}</h3>
                 <p className="mt-2 max-w-prose text-ink-2">{c.body}</p>
               </div>
               <span className="font-mono text-[0.7rem] uppercase tracking-mono text-ink-3 transition-colors group-hover:text-accent-strong">
@@ -335,7 +335,7 @@ const Approach: React.FC = () => (
     />
     <div className="relative mx-auto max-w-content px-5 py-24 sm:px-8 sm:py-32">
       <Reveal className="max-w-2xl">
-        <h2 className="text-display-sm font-extrabold text-on-abyss">
+        <h2 className="text-display-sm font-semibold text-on-abyss">
           Principles, not slideware.
         </h2>
         <p className="mt-5 max-w-prose text-on-abyss-mut">
@@ -353,7 +353,7 @@ const Approach: React.FC = () => (
           >
             <div className="flex items-center gap-3">
               <span aria-hidden className="h-px w-6 shrink-0 bg-accent" />
-              <h3 className="text-xl font-bold text-on-abyss">{p.title}</h3>
+              <h3 className="text-xl font-semibold text-on-abyss">{p.title}</h3>
             </div>
             <p className="mt-3 max-w-prose text-on-abyss-mut">{p.body}</p>
           </Reveal>
@@ -367,7 +367,7 @@ const Contact: React.FC = () => (
   <section id="contact" className="relative overflow-hidden bg-abyss text-on-abyss">
     <div className="mx-auto max-w-content px-5 py-28 sm:px-8 sm:py-36">
       <Reveal className="max-w-3xl">
-        <h2 className="text-display font-extrabold text-on-abyss">
+        <h2 className="text-display font-semibold text-on-abyss">
           Have a data problem worth solving?
         </h2>
         <p className="mt-6 max-w-prose text-lg leading-relaxed text-on-abyss-mut">

@@ -34,6 +34,7 @@ module.exports = {
         display: ["clamp(2.75rem, 1.5rem + 6.2vw, 6rem)", { lineHeight: "0.95", letterSpacing: "-0.03em" }],
         "display-sm": ["clamp(2rem, 1.1rem + 4vw, 3.75rem)", { lineHeight: "1", letterSpacing: "-0.025em" }],
         title: ["clamp(1.6rem, 1.1rem + 2.2vw, 2.6rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
+        hero: ["clamp(2.5rem, 1rem + 5vw, 4.5rem)", { lineHeight: "0.98", letterSpacing: "-0.03em" }],
       },
       letterSpacing: {
         mono: "0.02em",
