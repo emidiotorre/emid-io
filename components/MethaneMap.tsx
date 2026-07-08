@@ -130,7 +130,7 @@ const MethaneMap: React.FC<{ className?: string }> = ({ className = "" }) => {
             map.easeTo({
               center: [c.lng + DEG_PER_STEP, c.lat],
               duration: 1000,
-              easing: (n) => n,
+              easing: (n: number) => n,
             });
           };
           const scheduleSpin = () => {
