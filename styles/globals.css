@@ -2,15 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Spectral-instrument design system.
+  Palette is drawn from real methane / CH4 plume colormaps:
+  a cool low-concentration base ramping to a hot spectral high.
+  Values are OKLCH; the raw channels are exposed for the canvas viz.
+*/
 @layer base {
   :root {
-    --color-primo: 255 231 76;
-    --color-secondo: 111 114 185;
+    /* Surfaces */
+    --paper: oklch(0.981 0.003 240);
+    --paper-2: oklch(0.958 0.005 240);
+    --line: oklch(0.9 0.008 240);
+    --line-strong: oklch(0.82 0.01 240);
+
+    /* Ink */
+    --ink: oklch(0.24 0.02 258);
+    --ink-2: oklch(0.44 0.02 258);
+    --ink-3: oklch(0.58 0.02 258);
+
+    /* Instrument (dark) surfaces */
+    --abyss: oklch(0.17 0.026 256);
+    --abyss-2: oklch(0.22 0.03 256);
+    --abyss-line: oklch(0.34 0.03 256);
+    --on-abyss: oklch(0.94 0.006 240);
+    --on-abyss-mut: oklch(0.68 0.02 250);
+
+    /* Spectral concentration ramp (low -> high) */
+    --c-lo: oklch(0.6 0.11 232);   /* cool baseline teal-blue */
+    --c-mid: oklch(0.62 0.19 300); /* violet */
+    --c-hi: oklch(0.64 0.22 18);   /* infrared magenta-orange */
+
+    /* Accent = the "concentration" hot */
+    --accent: oklch(0.64 0.21 30);
+    --accent-strong: oklch(0.53 0.2 30); /* darkened for text on light / fills */
+    --accent-ink: oklch(0.36 0.15 30);
+
+    color-scheme: light;
   }
+
   html {
     margin: 0;
     padding: 0;
-    scroll-snap-type: y proximity;
-    overflow-y: scroll;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: var(--paper);
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Switzer", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--paper);
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: "Martian Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    font-feature-settings: normal;
+  }
+
+  /* Reveal: content is visible by default. JS opts into the animated
+     from-state only when it can also drive the reveal, so headless /
+     no-JS renders never ship blank. */
+  .reveal { opacity: 1; }
+  html.has-js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  html.has-js .reveal.in-view {
+    opacity: 1;
+    transform: none;
+  }
+
+  .grain {
+    background-image: radial-gradient(oklch(0.5 0.02 258 / 0.04) 0.5px, transparent 0.5px);
+    background-size: 4px 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html.has-js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
